@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        direction: rtl;
+    }
+    .custom-checkbox::before {
+        @apply right-0;
+    }
+    .logo-text {
+        @apply translate-x-full translate-y-full;
+    }
+    .left-nav {
+        @apply right-0;
+    }
+    .item__link--extend::after {
+        right: unset;
+        @apply left-[-9px] rotate-180;
+    }
+    .fa-long-arrow-right {
+        @apply rotate-180;
+    }
+    .fa-sign-out-alt {
+        @apply rotate-180;
+    }
+    .create-container {
+        left: unset;
+        @apply right-0;
+    }
+    .create-image {
+        @apply gap-4;
+    }
+    .create-social * {
+        direction: ltr;
+    }
+    .input--en {
+        direction: ltr !important;
+    }
+    .input::placeholder {
+        @apply !text-right;
+    }
+
+    .btn {
+        @apply bg-cGold-100 hover:bg-cGold-200 text-white
+        rounded py-2 px-4 cursor-pointer transition ease-out duration-300 hover:shadow-lg focus:shadow-lg;
+    }
+}
