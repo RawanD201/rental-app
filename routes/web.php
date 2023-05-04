@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Validation\ValidationException;
 
@@ -41,7 +42,8 @@ Route::middleware('auth')
         })->name('backup');
 
 
-        Route::get('/dashboard/{name?}', [HomeController::class, 'index'])->name('home')->where('name', 'home');
+        Route::get('/home/{name?}', [HomeController::class, 'index'])->name('home')->where('name', 'home');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::prefix('/admin')->group(function () {
             require __DIR__ . '/profile/index.php';
@@ -49,6 +51,8 @@ Route::middleware('auth')
             require __DIR__ . '/expenseType/index.php';
             require __DIR__ . '/car/index.php';
             require __DIR__ . '/capital/index.php';
+            require __DIR__ . '/merchant/index.php';
+            require __DIR__ . '/treat/index.php';
         });
 
         Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');

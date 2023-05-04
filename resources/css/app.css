@@ -209,7 +209,7 @@
         @apply block mt-1;
     }
     .list__item--open {
-        @apply !mb-28 !duration-150 !ease-out;
+        @apply !mb-48 !duration-150 !ease-out;
     }
     .list__item--open > .item-container *,
     .list__item--open > .item-container *::before,
@@ -242,8 +242,11 @@
     ** Start of Body Cointainer
     */
     .body-container {
-        @apply bg-cGray-100 shadow-lg border-[6px] border-white rounded-xl w-full h-full py-4 px-3 md:px-4 animate-bodyClose overflow-x-scroll overflow-y-scroll;
+        @apply bg-cGray-100 relative shadow-lg border-[6px] border-white rounded-xl w-full h-full py-4 px-3 md:px-4 animate-bodyClose overflow-x-scroll overflow-y-scroll;
         margin-inline-start: 50px;
+    }
+    .pdf-container {
+        @apply bg-cGray-100 shadow-lg border-white rounded-xl w-full h-full  animate-bodyClose overflow-auto;
     }
     .body__nav--open {
         @apply animate-bodyOpen;
@@ -354,10 +357,11 @@
         @apply py-3 px-4 rounded-md flex justify-between items-center w-full shadow-sm;
     }
     .index-header {
-        @apply sticky top-0 translate-y-[-35%] text-white px-6 bg-cGold-200 select-none;
+        @apply text-white px-6 bg-cGold-200 select-none;
     }
+
     .create-container {
-        @apply absolute right-0 bottom-[125%] text-cGreen-300 bg-white gap-2 text-base font-bold cursor-pointer transition-all border border-cGray-400 border-opacity-10 duration-200 ease-out rounded-full shadow-md;
+        @apply text-cGreen-300 bg-white gap-2 text-base font-bold cursor-pointer transition-all border border-cGray-400 border-opacity-10 duration-200 ease-out rounded-full shadow-md;
     }
     .create-container:hover {
         @apply bg-white text-cGray-400;
@@ -443,7 +447,7 @@
         @apply text-cGray-400;
     }
     .no-content {
-        @apply py-3 px-4 bg-white text-cGray-400 text-2xl capitalize rounded-md flex justify-center items-center w-2/4 shadow-sm mx-auto;
+        @apply py-3 px-4 bg-white text-cGray-400 text-2xl capitalize rounded-md flex justify-center items-center w-2/4 m-3 shadow-sm mx-auto;
     }
 
     /*
@@ -464,7 +468,10 @@
         flex: 1 1 100%;
     }
     .create-form div *:not(a, i) {
-        @apply flex justify-start items-center w-full;
+        @apply flex justify-center text-right items-center w-full;
+    }
+    .create-name {
+        @apply flex flex-col w-full;
     }
     .create-form .errors {
         @apply p-4;
@@ -615,4 +622,54 @@
     /*
     ** End of Manage Slides
     */
+}
+
+@media print {
+    .left-nav {
+        display: none;
+    }
+    body {
+        height: inherit;
+        width: inherit;
+        overflow-y: hidden;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    td {
+        padding: 0px !important;
+    }
+    tbody > tr > td {
+        padding: 5px 0px !important;
+    }
+    .pdf-container {
+        font-size: 9px;
+        border-radius: 0;
+    }
+    thead {
+        display: table-header-group;
+    }
+
+    .index-content {
+        gap: 0;
+        padding: 5px 10px;
+        border-radius: 0;
+        font-size: 7px;
+    }
+    .index-header {
+        padding: 3px 10px;
+        border-radius: 0;
+    }
+
+    .name-container,
+    .desc-container {
+        font-weight: 100 !important;
+    }
+    .header-pdf img {
+        width: 100px;
+    }
+    .a {
+        padding: 0 !important;
+        width: 5%;
+    }
 }

@@ -3,7 +3,7 @@
     $title = $title ?? '';
     $username = $username ?? 'Admin';
 @endphp
-@section('title', 'AP Soft - ' . $title)
+@section('title', 'AP Soft | ' . $title)
 
 @section('nav')
     @include('layouts.navbar')

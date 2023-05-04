@@ -16,6 +16,14 @@ module.exports = {
             "cGray-400": theme("colors.cGray.400"),
         }),
         extend: {
+            screens: {
+                print: {
+                    raw: 'print'
+                },
+                screen: {
+                    raw: 'screen'
+                }
+            },
             fontFamily: {
                 raber: ["raber", "nrt"],
             },
@@ -40,9 +48,9 @@ module.exports = {
                     100: "#9988ff",
                 },
                 cGold: {
-                    100: "#07B8A1",
-                    200: "#012823",
-                    300: "#047A6B",
+                    100: "#1B98D5",
+                    200: "#1B98D5",
+                    300: "#0C4764",
                 },
                 cGreen: {
                     100: "#82c885",
@@ -151,3 +159,4 @@ module.exports = {
         },
     },
 };
+
