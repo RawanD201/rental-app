@@ -250,7 +250,8 @@ return [
             'amount' => 'ماوە',
             'in_sh' => 'IN-SH',
             'inv_arg' => 'INV-AGR',
-            'date' => 'بەروار',
+            'startdate' => 'لە بەرواری',
+            'enddate' =>  'بۆ بەرواری',
         ],
     ]
 ];

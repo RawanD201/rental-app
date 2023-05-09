@@ -40,7 +40,7 @@ class TreatController extends Controller
 
     public function index(Request $req)
     {
-        $merchants = Merchant::latest()->paginate('8');
+        $merchants = Merchant::all();
         $searchName = $req->query('search', null);
 
         $treats = Treat::with('merchant')
@@ -48,7 +48,8 @@ class TreatController extends Controller
                 'merchant',
                 fn ($q) =>
                 $searchName ? $q->where('id', $searchName) : $q
-            )
+            )->where('recive_price', '!=', 0)
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 
         return view('treat.index', compact('merchants', 'treats'));
@@ -166,7 +167,7 @@ class TreatController extends Controller
         $req->updateRecord($treat);
         return \redirect()->route('treat.index')->with([
             'treat' => $treat,
-            'success' => __('index.admin.messages.merchant.success.update')
+            'success' => __('index.admin.messages.treat.success.update')
         ]);
     }
 
@@ -199,6 +200,8 @@ class TreatController extends Controller
         $in_sh = $req->query('in_sh', null);
         $inv_agr = $req->query('inv_agr', null);
         $date = $req->query('date', null);
+        $startdate = $req->query('startdate', null);
+        $enddate = $req->query('enddate', null);
 
         return Treat::query()
             ->with('merchant')
@@ -223,7 +226,8 @@ class TreatController extends Controller
             ->when($amount_price, fn ($q) => $q->where('amount_price', 'LIKE', "%{$amount_price}%"))
             ->when($in_sh, fn ($q) => $q->where('in_sh', 'LIKE', "%{$in_sh}%"))
             ->when($inv_agr, fn ($q) => $q->where('inv_agr', 'LIKE', "%{$inv_agr}%"))
-            ->when($date, fn ($q) => $q->where('created_at', $date));
+            ->when($startdate, fn ($q) => $q->whereDate('created_at', '>=', $startdate))
+            ->when($enddate, fn ($q) => $q->whereDate('created_at', '<=', $enddate));
     }
 
     private function getSumFields(): array

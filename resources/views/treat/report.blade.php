@@ -169,8 +169,13 @@
                 </select>
             </div>
             <div class="create-name">
-                <label for="select-16">{{ __('index.admin.report.date') }}</label>
-                <input type="date" name="date" class="input lg:w-10/12  w-full">
+                <label for="select-16">{{ __('index.admin.report.startdate') }}</label>
+                <input id="select-16" type="date" name="startdate" class="input lg:w-10/12 w-full">
+            </div>
+
+            <div class="create-name">
+                <label for="select-17">{{ __('index.admin.report.enddate') }}</label>
+                <input id="select-17" type="date" name="enddate" class="input lg:w-10/12 w-full">
             </div>
 
             <div class="flex gap-3 lg:justify-center">
@@ -183,8 +188,8 @@
                 </div>
             </div>
             <div
-                class="w-44 flex items-center justify-center text-yellow-500 bg-white gap-2 text-base font-bold cursor-pointer transition-all border border-cGray-400 border-opacity-10 duration-200 ease-out rounded-full shadow-md hover:bg-white hover:text-cGray-400 col-span-3 self-center">
-                <a class="lg:w-10/12 w-full flex items-center justify-center p-2 gap-2"
+                class="w-44 flex items-center justify-center text-yellow-500 bg-white gap-2 text-base font-bold cursor-pointer transition-all border border-cGray-400 border-opacity-10 duration-200 ease-out rounded-full shadow-md hover:bg-white hover:text-cGray-400">
+                <a class=" flex items-center justify-center p-2 gap-2"
                     href="{{ route('treat.report-pdf', $nextQueryStrings) }}">
                     <div class="icon">
                         <i class="fas fa-file-pdf"></i>

@@ -8,16 +8,18 @@
 
         <div class=" w-full flex items-end gap-3">
             <div class="create-name w-1/3">
-                <label for="select">ناوی بازرگان</label>
-                <select id="select" name="search" class="input w-full" placeholder="جۆری خەرجی">
+                <label for="select-15">ناوی بازرگان</label>
+                <select id="select-15" name="search" class="input select2">
                     <option></option>
                     @foreach ($merchants as $merchant)
-                        <option value="{{ $merchant->id }}" @selected($merchant->id == request()->query('search'))>{{ $merchant->name }}</option>
+                        <option value="{{ $merchant->id }}" @selected($merchant->id == request()->query('search'))>{{ $merchant->name }}
+                        </option>
                     @endforeach
                 </select>
             </div>
-            <div>
+            <div class="w-full">
                 <input type="submit" value="{{ __('index.admin.actions.search') }}" class="btn">
+                <a href="{{ url()->current() }}" class="btn">{{ __('index.admin.actions.clean') }}</a>
             </div>
         </div>
 
@@ -47,7 +49,6 @@
                     </div>
                 </a>
             </div>
-
         </div>
 
     </form>
@@ -131,8 +132,12 @@
 
         {{ $treats->withQueryString() }}
     </div>
-
-
+    <script>
+        $('.select2').select2({
+            // placeholder: '---ناوێک هەڵبژێرە ---',
+            // allowClear: true
+        });
+    </script>
 @endsection
 
 

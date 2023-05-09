@@ -43,14 +43,14 @@ Route::middleware('auth')
 
 
         Route::get('/home/{name?}', [HomeController::class, 'index'])->name('home')->where('name', 'home');
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        // Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
         Route::prefix('/admin')->group(function () {
             require __DIR__ . '/profile/index.php';
-            require __DIR__ . '/expense/index.php';
-            require __DIR__ . '/expenseType/index.php';
-            require __DIR__ . '/car/index.php';
-            require __DIR__ . '/capital/index.php';
+            // require __DIR__ . '/expense/index.php';
+            // require __DIR__ . '/expenseType/index.php';
+            // require __DIR__ . '/car/index.php';
+            // require __DIR__ . '/capital/index.php';
             require __DIR__ . '/merchant/index.php';
             require __DIR__ . '/treat/index.php';
         });
