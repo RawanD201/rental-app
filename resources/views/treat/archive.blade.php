@@ -24,6 +24,8 @@
                         <th class="px-4 py-2">{{ __('index.admin.table.in_sh') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.inv_agr') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.created_at') }}</th>
+                        <th class="px-4 py-2"></th>
+
                     </tr>
                 </thead>
                 @forelse ($treats as $treat)
@@ -46,6 +48,24 @@
                             <td class=" px-4 py-2 text-center">{{ $treat->in_sh }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->inv_agr }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->created_at }}</td>
+                            <td class="px-1 py-2 text-center flex gap-2 ">
+                                <form class="create-container px-3 py-2 text-cBlue-300"
+                                    action="{{ route('treat.edit', ['treat' => $treat->id]) }}" method="post">
+                                    @method('get')
+                                    @csrf
+                                    <button type="submit" class="edit" title="{{ __('index.admin.actions.edit') }}">
+                                        <i class="fas fa-pencil"></i>
+                                    </button>
+                                </form>
+                                <form class="create-container px-3 py-2 text-cRed-100 "
+                                    action="{{ route('treat.destroy', ['treat' => $treat->id]) }}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="delete" title="{{ __('index.admin.actions.delete') }}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
 
                         </tr>
                     </tbody>
