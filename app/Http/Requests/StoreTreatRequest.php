@@ -30,7 +30,8 @@ class StoreTreatRequest extends FormRequest
     {
         return [
             'car_name' => ['required', 'string', 'max:255'],
-            'shasi_number' => ['required', 'string'],
+            'car_number' => ['required', 'string', 'max:255', 'unique:treats,car_number'],
+            'shasi_number' => ['required', 'string', 'unique:treats,shasi_number'],
             'color' => ['required', 'string'],
             'model' => ['required', 'integer'],
             'border' => ['required', 'string'],
@@ -49,12 +50,17 @@ class StoreTreatRequest extends FormRequest
     public function attributes()
     {
         return [
-            'en_name' => "English Name",
-            'ku_name' => "Kurdish Name",
-            'ar_name' => "Arabic Name",
-            'en_description' => "English Description",
-            'ku_description' => "Kurdish Description",
-            'ar_description' => "Arabic Description",
+            'car_name' => "ناوی سەیارە",
+            'car_number' => "ژمارەی سەیارە",
+            'shasi_number' => "ژمارەی شاسی",
+            'color' => "ڕەنگی سەیارە",
+            'model' => "مۆدێلی سەیارە",
+            'border' => "سنووری داخڵکردن",
+            'transport_price' => "نرخی گواستنەوە",
+            'coc_price' => "نرخی",
+            'custom_price' => "نرخی گومرک",
+            'balance_price' => "نرخی ڕەسید + اخراجی",
+            'recive_price' => "پارەی وەرگیراو",
         ];
     }
     public function storeRecord()
@@ -62,6 +68,7 @@ class StoreTreatRequest extends FormRequest
         $total = $this->transport_price + $this->coc_price + $this->custom_price + $this->balance_price;
         $treat = Treat::create([
             'car_name' => $this->safe()->car_name,
+            'car_number' => $this->safe()->car_number,
             'merchant_id' => $this->merchant_id,
             'shasi_number' => $this->safe()->shasi_number,
             'color' => $this->safe()->color,
@@ -77,6 +84,13 @@ class StoreTreatRequest extends FormRequest
             'in_sh' => $this->in_sh,
             'inv_agr' => $this->inv_agr,
         ]);
+        //     if ($this->recive_price < $this->total) {
+
+        // } else {
+        //     return with([
+        //         'failed' => __('index.admin.messages.treat.fail.number')
+        //     ]);
+        // }
 
 
         if (!$treat)

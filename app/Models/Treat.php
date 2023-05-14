@@ -14,6 +14,7 @@ class Treat extends Model
 
     protected $fillable = [
         'car_name',
+        'car_number',
         'merchant_id',
         'shasi_number',
         'color',

@@ -21,8 +21,6 @@
     <div class="nav-body w-full">
         <ul class="list">
             {{-- list links --}}
-
-
             {{-- <li class="list-item">
                 <div class="item-container" tabindex="0">
                     <div class="item-icon">
@@ -144,6 +142,19 @@
                                 </div>
                                 <div class="item-link">
                                     <span>{{ __('index.admin.nav.treat.report') }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="list__item--extend">
+                        <a href="{{ route('treat.archive') }}" tabindex="-1">
+                            <div class="item-container" tabindex="0">
+                                <div class="item-icon">
+                                    <i class="fas fa-archive"></i>
+                                </div>
+                                <div class="item-link">
+                                    <span>{{ __('index.admin.nav.archive') }}</span>
                                 </div>
                             </div>
                         </a>

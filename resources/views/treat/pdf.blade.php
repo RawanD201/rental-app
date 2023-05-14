@@ -41,32 +41,32 @@
 
 
         <div class="flex flex-col px-10 p-2 w-1/4 a">
-            <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-gray-500 w-1/2 p-1 a"> {{ __('pdf.total.transport') }}</span>
+            <div class="flex gap-2 justify-between border-b-[1px]  w-full">
+                <span class="c_2 w-1/2 p-1 a"> {{ __('pdf.total.transport') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->transport_total, 0) }}</span>
             </div>
-            <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-gray-500 w-1/2 p-1 a"> {{ __('pdf.total.coc') }}</span>
+            <div class="flex gap-2 justify-between border-b-[1px]  w-full">
+                <span class="c_2 w-1/2 p-1 a"> {{ __('pdf.total.coc') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->coc_total, 0) }}</span>
             </div>
-            <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-gray-500 w-1/2 p-1 a"> {{ __('pdf.total.custom') }}</span>
+            <div class="flex gap-2 justify-between border-b-[1px]  w-full">
+                <span class="c_2 w-1/2 p-1 a"> {{ __('pdf.total.custom') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->custom_total, 0) }}</span>
             </div>
-            <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-gray-500 w-1/2 p-1 a"> {{ __('pdf.total.balance') }}</span>
+            <div class="flex gap-2 justify-between border-b-[1px]  w-full">
+                <span class="c_2 w-1/2 p-1 a"> {{ __('pdf.total.balance') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->balance_total, 0) }}</span>
             </div>
-            <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-yellow-600 w-1/2 p-1 a"> {{ __('pdf.total.all') }}</span>
+            <div class="flex gap-2 justify-between border-b-[1px]  w-full">
+                <span class="c_3 w-1/2 p-1 a"> {{ __('pdf.total.all') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->total, 0) }}</span>
             </div>
-            <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-cGold-200 w-1/2 p-1 a"> {{ __('pdf.total.recive') }}</span>
+            <div class="flex gap-2 justify-between border-b-[1px]  w-full">
+                <span class="c_4 w-1/2 p-1 a"> {{ __('pdf.total.recive') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->recive_total, 0) }}</span>
             </div>
             <div class="flex gap-2 justify-between border-b-[1px] w-full">
-                <span class="bg-cGold-200 w-1/2 p-1 a"> {{ __('pdf.total.amount') }}</span>
+                <span class="c_4 w-1/2 p-1 a"> {{ __('pdf.total.amount') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->amount_total, 0) }}</span>
             </div>
         </div>
@@ -81,6 +81,7 @@
                 <tr>
                     <th class="px-3 py-1">{{ __('pdf.table.id') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.car') }}</th>
+                    <th class="px-3 py-1">{{ __('index.admin.table.number') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.shasi_number') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.color') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.model') }}</th>
@@ -99,18 +100,19 @@
             <tbody>
                 @foreach ($treats as $treat)
                     <tr>
-                        <td class=" text-center">{{ $treat->id }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->car_name }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->shasi_number }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->color }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->model }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->border }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->transport_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->coc_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->balance_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->custom_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->total_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->amount_price, 0) }}</td>
+                        <td class=" text-center c_1">{{ $loop->iteration }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->car_name }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->car_number }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->shasi_number }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->color }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->model }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->border }}</td>
+                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->transport_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->coc_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->balance_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->custom_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_3">${{ number_format($treat->total_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_4">${{ number_format($treat->amount_price, 0) }}</td>
                         <td class=" px-4 py-2 text-center">{{ $treat->in_sh }}</td>
                         <td class=" px-4 py-2 text-center">{{ $treat->inv_agr }}</td>
                         <td class=" px-4 py-2 text-center">{{ $treat->created_at }}</td>

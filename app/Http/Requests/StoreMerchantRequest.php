@@ -42,12 +42,9 @@ class StoreMerchantRequest extends FormRequest
     public function attributes()
     {
         return [
-            'en_name' => "English Name",
-            'ku_name' => "Kurdish Name",
-            'ar_name' => "Arabic Name",
-            'en_description' => "English Description",
-            'ku_description' => "Kurdish Description",
-            'ar_description' => "Arabic Description",
+            'name' => "ناوی بازرگان",
+            'phone' => "ژمارەی مۆبایل",
+            'location' => "ناونیشان",
         ];
     }
     public function storeRecord()

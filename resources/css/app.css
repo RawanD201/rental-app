@@ -209,7 +209,7 @@
         @apply block mt-1;
     }
     .list__item--open {
-        @apply !mb-48 !duration-150 !ease-out;
+        @apply !mb-56 !duration-150 !ease-out;
     }
     .list__item--open > .item-container *,
     .list__item--open > .item-container *::before,
@@ -324,6 +324,28 @@
     }
     .page-row-1 .page-card:nth-child(3) {
         @apply bg-rose-400;
+    }
+    .counter-container {
+        counter-reset: my-counter; /* Initialize the counter */
+    }
+
+    .counter-item::before {
+        counter-increment: my-counter; /* Increment the counter for each item */
+        content: counter(my-counter); /* Display the counter value */
+        margin-right: 5px; /* Add spacing between the counter and the item */
+    }
+
+    .c_1 {
+        @apply bg-yellow-200;
+    }
+    .c_2 {
+        @apply bg-gray-200;
+    }
+    .c_3 {
+        @apply bg-orange-200;
+    }
+    .c_4 {
+        @apply bg-violet-200;
     }
 
     /* .page-row-2 .page-card:hover button,
@@ -467,11 +489,15 @@
         @apply min-w-[290px] w-full flex justify-center items-stretch;
         flex: 1 1 100%;
     }
-    .create-form div *:not(a, i) {
+    .create-form div *:not(a, i, label) {
         @apply flex justify-center text-right items-center w-full;
     }
+
+    .input_label {
+        @apply bg-cGold-200 self-center rounded text-white w-2/4 lg:w-1/4 text-center p-1;
+    }
     .create-name {
-        @apply flex flex-col w-full;
+        @apply flex flex-col lg:flex-row gap-2 w-full;
     }
     .create-form .errors {
         @apply p-4;
@@ -643,6 +669,7 @@
         padding: 5px 0px !important;
     }
     .pdf-container {
+        touch-action: manipulation;
         font-size: 9px;
         border-radius: 0;
     }

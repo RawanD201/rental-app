@@ -7,8 +7,9 @@
     <form action="{{ route('treat.report') }}" class="flex items-end gap-3 justify-between">
 
         <div class=" w-full lg:grid lg:grid-cols-4  gap-1 flex-wrap grid-wrap flex flex-col">
-            <div class="create-name">
-                <label for="select-1">{{ __('index.admin.report.merchant_name') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-1"
+                    class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.merchant_name') }}</label>
                 <select id="select-1" name="name" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantNames as $merchantName)
@@ -18,8 +19,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-2">{{ __('index.admin.report.phone') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-2" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.phone') }}</label>
                 <select id="select-2" name="phone" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantPhones as $merchantPhone)
@@ -29,8 +30,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-3">{{ __('index.admin.report.car_name') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-3" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.car_name') }}</label>
                 <select id="select-3" name="car_name" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantCars as $merchantCar)
@@ -40,8 +41,21 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-4">{{ __('index.admin.report.shasi_number') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-18"
+                    class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.car_number') }}</label>
+                <select id="select-18" name="car_number" class="input lg:w-10/12 w-full select2">
+                    <option></option>
+                    @foreach ($merchantCarNumbers as $merchantCarNumber)
+                        <option value="{{ $merchantCarNumber }}" @selected($merchantCarNumber == request()->query('car_number'))>
+                            {{ $merchantCarNumber }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-4"
+                    class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.shasi_number') }}</label>
                 <select id="select-4" name="shasi_number" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantShasis as $merchantShasi)
@@ -51,8 +65,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-5">{{ __('index.admin.report.color') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-5" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.color') }}</label>
                 <select id="select-5" name="color" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantColors as $merchantColor)
@@ -62,8 +76,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-6">{{ __('index.admin.report.model') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-6" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.model') }}</label>
                 <select id="select-6" name="model" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantModels as $merchantModel)
@@ -73,8 +87,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-7">{{ __('index.admin.report.border') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-7" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.border') }}</label>
                 <select id="select-7" name="border" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantBorders as $merchantBorder)
@@ -83,8 +97,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-8">{{ __('index.admin.report.transport') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-8" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.transport') }}</label>
                 <select id="select-8" name="transport_price" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantTransports as $merchantTransport)
@@ -94,8 +108,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-9">{{ __('index.admin.report.coc') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-9" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.coc') }}</label>
                 <select id="select-9" name="coc_price" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantCocs as $merchantCoc)
@@ -104,8 +118,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-10">{{ __('index.admin.report.custom') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-10" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.custom') }}</label>
                 <select id="select-10" name="custom_price" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantCustoms as $merchantCustom)
@@ -115,8 +129,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-11">{{ __('index.admin.report.balance') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-11" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.balance') }}</label>
                 <select id="select-11" name="balance_price" class="input lg:w-10/12 w w-full select2">
                     <option></option>
                     @foreach ($merchantBalances as $merchantBalance)
@@ -126,8 +140,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-12">{{ __('index.admin.report.total') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-12" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.total') }}</label>
                 <select id="select-12" name="total_price" class="input lg:w-10/12 w w-full select2">
                     <option></option>
                     @foreach ($merchantTotals as $merchantTotal)
@@ -137,8 +151,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-13">{{ __('index.admin.report.amount') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-13" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.amount') }}</label>
                 <select id="select-13" name="amount_price" class="input lg:w-10/12 w w-full select2">
                     <option></option>
                     @foreach ($merchantAmounts as $merchantAmounts)
@@ -148,8 +162,8 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-14">{{ __('index.admin.report.in_sh') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-14" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.in_sh') }}</label>
                 <select id="select-14" name="in_sh" class="input lg:w-10/12 w-full select2 ">
                     <option></option>
                     @foreach ($merchantInshs as $merchantInsh)
@@ -158,8 +172,9 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-15">{{ __('index.admin.report.inv_arg') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-15"
+                    class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.inv_arg') }}</label>
                 <select id="select-15" name="inv_arg" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantInvagrs as $merchantInvagr)
@@ -168,36 +183,34 @@
                     @endforeach
                 </select>
             </div>
-            <div class="create-name">
-                <label for="select-16">{{ __('index.admin.report.startdate') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-16"
+                    class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.startdate') }}</label>
                 <input id="select-16" type="date" name="startdate" class="input lg:w-10/12 w-full">
             </div>
 
-            <div class="create-name">
-                <label for="select-17">{{ __('index.admin.report.enddate') }}</label>
+            <div class="create-name w-full justify-center items-center">
+                <label for="select-17"
+                    class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.enddate') }}</label>
                 <input id="select-17" type="date" name="enddate" class="input lg:w-10/12 w-full">
             </div>
 
-            <div class="flex gap-3 lg:justify-center">
-                <input type="submit" value="{{ __('index.admin.actions.search') }}" class="btn w-1/2">
-                <div class="flex gap-2 w-1/2">
-
-                    <a href="{{ url()->current() }}"
-                        class="btn flex items-center justify-center  w-full">{{ __('index.admin.actions.clean') }}</a>
-
+            <div class="flex gap-3 lg:justify-center col-span-2">
+                <input type="submit" value="{{ __('index.admin.actions.search') }}" class="btn">
+                <a href="{{ url()->current() }}"
+                    class="btn flex items-center justify-center">{{ __('index.admin.actions.clean') }}</a>
+                <div
+                    class="w-44 flex items-center justify-center text-yellow-500 bg-white gap-2 text-base font-bold cursor-pointer transition-all border border-cGray-400 border-opacity-10 duration-200 ease-out rounded-full shadow-md hover:bg-white hover:text-cGray-400">
+                    <a class=" flex items-center justify-center p-2 gap-2"
+                        href="{{ route('treat.report-pdf', $nextQueryStrings) }}">
+                        <div class="icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="text">
+                            <span>{{ __('index.admin.actions.pdf') }}</span>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div
-                class="w-44 flex items-center justify-center text-yellow-500 bg-white gap-2 text-base font-bold cursor-pointer transition-all border border-cGray-400 border-opacity-10 duration-200 ease-out rounded-full shadow-md hover:bg-white hover:text-cGray-400">
-                <a class=" flex items-center justify-center p-2 gap-2"
-                    href="{{ route('treat.report-pdf', $nextQueryStrings) }}">
-                    <div class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="text">
-                        <span>{{ __('index.admin.actions.pdf') }}</span>
-                    </div>
-                </a>
             </div>
         </div>
 
@@ -217,6 +230,7 @@
             <table class="table w-full">
                 <thead class="bg-cGold-200 text-white text-sm">
                     <tr>
+                        <th class="px-4 py-2">{{ __('index.admin.table.id') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.merchant') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.phone') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.car') }}</th>
@@ -238,6 +252,7 @@
                 @forelse ($treats as $treat)
                     <tbody class="text-sm">
                         <tr>
+                            <td class=" px-4 py-2 text-center">{{ $loop->iteration }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->merchant->name }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->merchant->phone }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->car_name }}</td>

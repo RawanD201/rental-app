@@ -24,6 +24,7 @@ class TreatSeeder extends Seeder
                 Treat::create([
                     'merchant_id' => $merchant->id,
                     'car_name' => $faker->word,
+                    'car_number' => $faker->unique()->numberBetween(1, 1000, 1000),
                     'shasi_number' => $faker->unique()->randomNumber(8),
                     'color' => $faker->safeColorName,
                     'model' => $faker->numberBetween(2000, 2023),

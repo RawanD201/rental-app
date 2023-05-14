@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('merchant_id')->constrained('merchants', 'id')->onDelete('cascade');
             $table->string('car_name');
+            $table->string('car_number')->unique();
             $table->string('shasi_number')->unique();
             $table->string('color');
             $table->integer('model');
@@ -24,7 +25,7 @@ return new class extends Migration
             $table->double('custom_price');
             $table->double('balance_price');
             $table->double('total_price');
-            $table->double('recive_price');
+            $table->double('recive_price')->default(0);
             $table->double('amount_price');
             $table->string('in_sh')->nullable();
             $table->string('inv_agr')->nullable();

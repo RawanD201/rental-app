@@ -48,7 +48,7 @@ class TreatController extends Controller
                 'merchant',
                 fn ($q) =>
                 $searchName ? $q->where('id', $searchName) : $q
-            )->where('recive_price', '!=', 0)
+            )->where('recive_price', '=', 0)
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
@@ -83,6 +83,7 @@ class TreatController extends Controller
         $merchantNames = Merchant::distinct('name')->get();
         $merchantPhones = Merchant::distinct('phone')->get();
         $merchantCars = Treat::with('merchant')->distinct('car_name')->pluck('car_name');
+        $merchantCarNumbers = Treat::with('merchant')->distinct('car_number')->pluck('car_number');
         $merchantShasis = Treat::with('merchant')->distinct('shasi_number')->pluck('shasi_number');
         $merchantColors = Treat::with('merchant')->distinct('color')->pluck('color');
         $merchantModels = Treat::with('merchant')->distinct('model')->pluck('model');
@@ -98,7 +99,8 @@ class TreatController extends Controller
         $merchantInvagrs = Treat::with('merchant')->distinct('inv_agr')->pluck('inv_agr');
 
 
-        $treats = $this->getTreatQueryByFilter($req)->paginate(11);
+        $treats = $this->getTreatQueryByFilter($req)->orderBy('created_at', 'desc')
+            ->paginate(13);
 
         $nextQueryStrings = [];
         \parse_str($req->getQueryString(), $nextQueryStrings);
@@ -111,6 +113,7 @@ class TreatController extends Controller
             'treats',
             'nextQueryStrings',
             'merchantNames',
+            'merchantCarNumbers',
             'merchantPhones',
             'merchantCars',
             'merchantShasis',
@@ -138,7 +141,8 @@ class TreatController extends Controller
             ->filter(fn ($el) => \strlen($el) > 0)
             ->toArray();
 
-        $treats = $this->getTreatQueryByFilter($req)->get();
+        $treats = $this->getTreatQueryByFilter($req)->orderBy('created_at', 'desc')
+            ->get();
 
         $total  = $this->getTreatQueryByFilter($req)
             ->select($this->getSumFields())
@@ -180,12 +184,24 @@ class TreatController extends Controller
         ]);
     }
 
+    public function archive(Request $req)
+    {
+        $treats = Treat::with('merchant')
+            ->where('recive_price', '!=', 0)
+            ->orderBy('created_at', 'desc')
+            ->paginate(13);
+
+        return view('treat.archive', compact('treats'));
+    }
+
+
     private function getTreatQueryByFilter(Request $req): Builder
     {
         $name = $req->query('name', null);
         $phone = $req->query('phone', null);
         $location = $req->query('location', null);
         $car_name = $req->query('car_name', null);
+        $car_number = $req->query('car_number', null);
         $border = $req->query('border', null);
         $color = $req->query('color', null);
         $model = $req->query('model', null);
@@ -213,6 +229,7 @@ class TreatController extends Controller
                     ->when($location, fn ($q) => $q->where('location', $location))
             )
             ->when($car_name, fn ($q) => $q->where('car_name', 'LIKE', "%{$car_name}%"))
+            ->when($car_number, fn ($q) => $q->where('car_number', 'LIKE', "%{$car_number}%"))
             ->when($border, fn ($q) => $q->where('border', 'LIKE', "%{$border}%"))
             ->when($color, fn ($q) => $q->where('color', 'LIKE', "%{$color}%"))
             ->when($model, fn ($q) => $q->where('model', 'LIKE', "%{$model}%"))

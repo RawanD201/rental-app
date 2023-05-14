@@ -7,7 +7,7 @@
 
 @section('body')
 
-    <div class="pdf-container">
+    <div class="pdf-container ">
         @yield('pdf-main')
     </div>
 

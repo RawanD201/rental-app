@@ -15,7 +15,6 @@
     <div class="flex items-center py-4">
 
 
-        <!-- Your text here -->
         <span class="flex-shrink text-2xl text-gray-500 px-4 italic font-light">{{ __('pdf.report') }}</span>
         <div class="flex-grow h-3 bg-gray-400"></div>
     </div>
@@ -25,31 +24,31 @@
     <div class="flex justify-between pb-6">
         <div class="flex flex-col px-4 w-1/4 a">
             <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-gray-500 w-1/2 p-1 a"> {{ __('pdf.total.transport') }}</span>
+                <span class="c_2 w-1/2 p-1 a"> {{ __('pdf.total.transport') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->transport_total, 0) }}</span>
             </div>
             <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-gray-500 w-1/2 p-1 a"> {{ __('pdf.total.coc') }}</span>
+                <span class="c_2 w-1/2 p-1 a"> {{ __('pdf.total.coc') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->coc_total, 0) }}</span>
             </div>
             <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-gray-500 w-1/2 p-1 a"> {{ __('pdf.total.custom') }}</span>
+                <span class="c_2 w-1/2 p-1 a"> {{ __('pdf.total.custom') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->balance_total, 0) }}</span>
             </div>
             <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-gray-500 w-1/2 p-1 a"> {{ __('pdf.total.balance') }}</span>
+                <span class="c_2 w-1/2 p-1 a"> {{ __('pdf.total.balance') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->custom_total, 0) }}</span>
             </div>
             <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-yellow-600 w-1/2 p-1 a"> {{ __('pdf.total.all') }}</span>
+                <span class="c_3 w-1/2 p-1 a"> {{ __('pdf.total.all') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->total, 0) }}</span>
             </div>
             <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-cGold-200 w-1/2 p-1 a"> {{ __('pdf.total.recive') }}</span>
+                <span class="c_4  w-1/2 p-1 a"> {{ __('pdf.total.recive') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->recive_total, 0) }}</span>
             </div>
             <div class="flex gap-2 justify-between border-b-[1px] border-cGold-200 w-full">
-                <span class="bg-cGold-200 w-1/2 p-1 a"> {{ __('pdf.total.amount') }}</span>
+                <span class="c_4  w-1/2 p-1 a"> {{ __('pdf.total.amount') }}</span>
                 <span class="w-1/2 p-1 a text-left">${{ number_format($total->amount_total, 0) }}</span>
             </div>
         </div>
@@ -65,6 +64,7 @@
                     <th class="px-3 py-1">{{ __('index.admin.table.name') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.phone') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.car') }}</th>
+                    <th class="px-3 py-1">{{ __('index.admin.table.number') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.shasi_number') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.color') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.model') }}</th>
@@ -77,25 +77,27 @@
                     <th class="px-3 py-1">{{ __('index.admin.table.amount_price') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.in_sh') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.inv_agr') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.created_at') }}</th>
+                    <th class="px-3 py-1">{{ __('index.admin.table.expense_date') }}</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($treats as $treat)
-                    <tr>
-                        <td class=" px-4 py-2 text-center">{{ $treat->merchant->name }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->merchant->phone }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->car_name }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->shasi_number }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->color }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->model }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->border }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->transport_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->coc_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->balance_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->custom_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->total_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">${{ number_format($treat->amount_price, 0) }}</td>
+                    <tr class="counter-container">
+                        <td class=" px-4 py-2 text-center c_1">{{ $loop->iteration }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->merchant->name }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->merchant->phone }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->car_name }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->car_number }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->shasi_number }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->color }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->model }}</td>
+                        <td class=" px-4 py-2 text-center c_1">{{ $treat->border }}</td>
+                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->transport_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->coc_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->balance_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->custom_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_3">${{ number_format($treat->total_price, 0) }}</td>
+                        <td class=" px-4 py-2 text-center c_4">${{ number_format($treat->amount_price, 0) }}</td>
                         <td class=" px-4 py-2 text-center">{{ $treat->in_sh }}</td>
                         <td class=" px-4 py-2 text-center">{{ $treat->inv_agr }}</td>
                         <td class=" px-4 py-2 text-center">{{ $treat->created_at }}</td>
@@ -107,9 +109,7 @@
 
     <script>
         window.onload = function() {
-            if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)) {
-                // user is on a mobile device, don't open print dialog
-            } else {
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)) {} else {
                 window.print();
             }
         };

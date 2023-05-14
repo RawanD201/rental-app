@@ -4,12 +4,12 @@
 
 @section('body-main')
 
-    <form action="{{ route('treat.index') }}" class="flex items-end gap-3 justify-between">
+    <form action="{{ route('treat.index') }}" class="flex flex-col lg:flex-row items-end gap-3 justify-between w-full">
 
-        <div class=" w-full flex items-end gap-3">
-            <div class="create-name w-1/3">
-                <label for="select-15">ناوی بازرگان</label>
-                <select id="select-15" name="search" class="input select2">
+        <div class=" w-full flex flex-col lg:flex-row items-end gap-3">
+            <div class="create-name flex flex-col lg:flex-row">
+                <label for="select-15" class="w-1/5">ناوی بازرگان</label>
+                <select id="select-15" name="search" class="input w-10/12 select2">
                     <option></option>
                     @foreach ($merchants as $merchant)
                         <option value="{{ $merchant->id }}" @selected($merchant->id == request()->query('search'))>{{ $merchant->name }}
@@ -17,14 +17,14 @@
                     @endforeach
                 </select>
             </div>
-            <div class="w-full">
+            <div class="w-full flex gap-2">
                 <input type="submit" value="{{ __('index.admin.actions.search') }}" class="btn">
                 <a href="{{ url()->current() }}" class="btn">{{ __('index.admin.actions.clean') }}</a>
             </div>
         </div>
 
 
-        <div class="flex gap-2">
+        <div class="flex gap-2 flex-wrap lg:flex-nowrap">
             <div
                 class="w-44 text-cGreen-300 bg-white gap-2 text-base font-bold cursor-pointer transition-all border border-cGray-400 border-opacity-10 duration-200 ease-out rounded-full shadow-md flex hove:bg-white hover:text-cGray-400">
                 <a class="w-full flex items-center justify-center p-2 gap-2"
@@ -65,8 +65,10 @@
             <table class="table w-full">
                 <thead class="bg-cGold-200 text-white text-sm">
                     <tr>
+                        <th class="px-4 py-2">{{ __('index.admin.table.id') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.merchant') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.car') }}</th>
+                        <th class="px-4 py-2">{{ __('index.admin.table.number') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.shasi_number') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.color') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.model') }}</th>
@@ -86,22 +88,24 @@
                 @forelse ($treats as $treat)
                     <tbody class="text-sm">
                         <tr>
+                            <td class=" px-4 py-2 text-center">{{ $loop->iteration }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->merchant->name }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->car_name }}</td>
+                            <td class=" px-3 py-1 text-center">{{ $treat->car_number }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->shasi_number }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->color }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->model }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->border }}</td>
                             <td class=" px-4 py-2 text-center">${{ number_format($treat->transport_price, 0) }}</td>
                             <td class=" px-4 py-2 text-center">${{ number_format($treat->coc_price, 0) }}</td>
-                            <td class=" px-4 py-2 text-center">${{ number_format($treat->balance_price, 0) }}</td>
                             <td class=" px-4 py-2 text-center">${{ number_format($treat->custom_price, 0) }}</td>
+                            <td class=" px-4 py-2 text-center">${{ number_format($treat->balance_price, 0) }}</td>
                             <td class=" px-4 py-2 text-center">${{ number_format($treat->total_price, 0) }}</td>
                             <td class=" px-4 py-2 text-center">${{ number_format($treat->amount_price, 0) }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->in_sh }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->inv_agr }}</td>
                             <td class=" px-4 py-2 text-center">{{ $treat->created_at }}</td>
-                            <td class="px-4 py-2 text-center flex gap-2 ">
+                            <td class="px-1 py-2 text-center flex gap-2 ">
                                 <form class="create-container px-3 py-2 text-cBlue-300"
                                     action="{{ route('treat.edit', ['treat' => $treat->id]) }}" method="post">
                                     @method('get')

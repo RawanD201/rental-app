@@ -24,4 +24,6 @@ Route::name('treat.')->group(function () {
     Route::patch('/treat/{treat}', [TreatController::class, 'update'])->name('update');
 
     Route::delete('/treat/{treat}', [TreatController::class, 'destroy'])->name('destroy');
+
+    Route::get('/treat/archive', [TreatController::class, 'archive'])->name('archive');
 });

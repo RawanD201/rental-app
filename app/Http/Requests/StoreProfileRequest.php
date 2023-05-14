@@ -46,9 +46,9 @@ class StoreProfileRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => "Name",
-            'username' => "Username",
-            'passowrd' => "Password",
+            'name' => "ناو",
+            'username' => "بەکارهێنەر",
+            'passowrd' => "ووشەی نهێنی",
         ];
     }
     public function storeRecord()

@@ -44,8 +44,8 @@ class LoginRequest extends FormRequest
     public function attributes()
     {
         return [
-            'username' => "Username",
-            'password' => "Password",
+            'username' => "بەکارهێنەر",
+            'password' => "ووشەی نهێنی",
         ];
     }
     public function authenticate()
