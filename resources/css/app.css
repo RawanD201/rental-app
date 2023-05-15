@@ -347,6 +347,9 @@
     .c_4 {
         @apply bg-violet-200;
     }
+    .c_5 {
+        @apply bg-white;
+    }
 
     /* .page-row-2 .page-card:hover button,
     .page-row-2 .page-card:focus button, */

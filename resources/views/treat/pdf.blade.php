@@ -94,7 +94,7 @@
                     <th class="px-3 py-1">{{ __('index.admin.table.amount_price') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.in_sh') }}</th>
                     <th class="px-3 py-1">{{ __('index.admin.table.inv_agr') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.created_at') }}</th>
+                    <th class="px-3 py-1">{{ __('index.admin.table.expense_date') }}</th>
                 </tr>
             </thead>
             <tbody>

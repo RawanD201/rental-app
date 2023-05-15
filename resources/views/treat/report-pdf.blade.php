@@ -61,46 +61,47 @@
         <table class="table w-full">
             <thead class="bg-cGold-200 text-white">
                 <tr>
-                    <th class="px-3 py-1">{{ __('index.admin.table.name') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.phone') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.car') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.number') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.shasi_number') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.color') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.model') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.border') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.transport') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.coc') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.gumrk') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.rasid') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.total') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.amount_price') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.in_sh') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.inv_agr') }}</th>
-                    <th class="px-3 py-1">{{ __('index.admin.table.expense_date') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.id') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.name') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.phone') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.car') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.number') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.shasi_number') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.color') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.model') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.border') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.transport') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.coc') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.gumrk') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.rasid') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.total') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.amount_price') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.in_sh') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.inv_agr') }}</th>
+                    <th class="px-2 py-1">{{ __('index.admin.table.expense_date') }}</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($treats as $treat)
                     <tr class="counter-container">
-                        <td class=" px-4 py-2 text-center c_1">{{ $loop->iteration }}</td>
-                        <td class=" px-4 py-2 text-center c_1">{{ $treat->merchant->name }}</td>
-                        <td class=" px-4 py-2 text-center c_1">{{ $treat->merchant->phone }}</td>
-                        <td class=" px-4 py-2 text-center c_1">{{ $treat->car_name }}</td>
-                        <td class=" px-4 py-2 text-center c_1">{{ $treat->car_number }}</td>
-                        <td class=" px-4 py-2 text-center c_1">{{ $treat->shasi_number }}</td>
-                        <td class=" px-4 py-2 text-center c_1">{{ $treat->color }}</td>
-                        <td class=" px-4 py-2 text-center c_1">{{ $treat->model }}</td>
-                        <td class=" px-4 py-2 text-center c_1">{{ $treat->border }}</td>
-                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->transport_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->coc_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->balance_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center c_2">${{ number_format($treat->custom_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center c_3">${{ number_format($treat->total_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center c_4">${{ number_format($treat->amount_price, 0) }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->in_sh }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->inv_agr }}</td>
-                        <td class=" px-4 py-2 text-center">{{ $treat->created_at }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $loop->iteration }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $treat->merchant->name }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $treat->merchant->phone }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $treat->car_name }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $treat->car_number }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $treat->shasi_number }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $treat->color }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $treat->model }}</td>
+                        <td class=" px-3 py-2 text-center c_1">{{ $treat->border }}</td>
+                        <td class=" px-3 py-2 text-center c_2">${{ number_format($treat->transport_price, 0) }}</td>
+                        <td class=" px-3 py-2 text-center c_2">${{ number_format($treat->coc_price, 0) }}</td>
+                        <td class=" px-3 py-2 text-center c_2">${{ number_format($treat->balance_price, 0) }}</td>
+                        <td class=" px-3 py-2 text-center c_2">${{ number_format($treat->custom_price, 0) }}</td>
+                        <td class=" px-3 py-2 text-center c_3">${{ number_format($treat->total_price, 0) }}</td>
+                        <td class=" px-3 py-2 text-center c_4">${{ number_format($treat->amount_price, 0) }}</td>
+                        <td class=" px-3 py-2 text-center c_5">{{ $treat->in_sh }}</td>
+                        <td class=" px-3 py-2 text-center c_5">{{ $treat->inv_agr }}</td>
+                        <td class=" px-3 py-2 text-center c_5">{{ $treat->created_at }}</td>
                     </tr>
                 @endforeach
             </tbody>

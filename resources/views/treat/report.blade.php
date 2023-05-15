@@ -240,8 +240,8 @@
                         <th class="px-4 py-2">{{ __('index.admin.table.border') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.transport') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.coc') }}</th>
-                        <th class="px-4 py-2">{{ __('index.admin.table.gumrk') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.rasid') }}</th>
+                        <th class="px-4 py-2">{{ __('index.admin.table.gumrk') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.total') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.amount_price') }}</th>
                         <th class="px-4 py-2">{{ __('index.admin.table.in_sh') }}</th>
