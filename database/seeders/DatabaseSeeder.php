@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Merchant;
+use App\Models\Treat;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,5 +24,13 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         ]);
+
+        Merchant::factory(30)->create();
+
+        Merchant::all()->each(function ($merchant) {
+            Treat::factory(30)->create([
+                'merchant_id' => $merchant->id
+            ]);
+        });
     }
 }

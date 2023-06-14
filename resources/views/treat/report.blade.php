@@ -3,6 +3,10 @@
 
 
 @section('body-main')
+    {{-- @php
+        dd($merchantCocs[1], request()->has('coc_price'), $merchantCocs[1] === request()->query('coc_price'));
+
+    @endphp --}}
 
     <form action="{{ route('treat.report') }}" class="flex items-end gap-3 justify-between">
 
@@ -92,7 +96,7 @@
                 <select id="select-7" name="border" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantBorders as $merchantBorder)
-                        <option value="{{ $merchantBorder }}" @selected($merchantBorder == request()->query('border'))>{{ $merchantBorder }}
+                        <option value="{{ $merchantBorder }}" @selected($merchantBorder == request()->query('border') && filled(request()->query('border')))>{{ $merchantBorder }}
                         </option>
                     @endforeach
                 </select>
@@ -102,7 +106,7 @@
                 <select id="select-8" name="transport_price" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantTransports as $merchantTransport)
-                        <option value="{{ $merchantTransport }}" @selected($merchantTransport == request()->query('transport_price'))>
+                        <option value="{{ $merchantTransport }}" @selected($merchantTransport === request()->query('transport_price') && filled(request()->query('transport_pric')))>
                             ${{ $merchantTransport }}
                         </option>
                     @endforeach
@@ -113,17 +117,17 @@
                 <select id="select-9" name="coc_price" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantCocs as $merchantCoc)
-                        <option value="{{ $merchantCoc }}" @selected($merchantCoc == request()->query('coc_price'))>${{ $merchantCoc }}
+                        <option value="{{ $merchantCoc }}" @selected($merchantCoc == request()->query('coc_price') && filled(request()->query('coc_price')))>${{ $merchantCoc }}
                         </option>
                     @endforeach
                 </select>
             </div>
             <div class="create-name w-full justify-center items-center">
-                <label for="select-10" class="lg:w-1/4  w-full text-center">{{ __('index.admin.report.custom') }}</label>
+                <label for="select-10" class="lg:w-1/4 w-full text-center">{{ __('index.admin.report.custom') }}</label>
                 <select id="select-10" name="custom_price" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantCustoms as $merchantCustom)
-                        <option value="{{ $merchantCustom }}" @selected($merchantCustom == request()->query('custom_price'))>
+                        <option value="{{ $merchantCustom }}" @selected($merchantCustom == request()->query('custom_price') && filled(request()->query('custom_price')))>
                             ${{ $merchantCustom }}
                         </option>
                     @endforeach
@@ -134,7 +138,7 @@
                 <select id="select-11" name="balance_price" class="input lg:w-10/12 w w-full select2">
                     <option></option>
                     @foreach ($merchantBalances as $merchantBalance)
-                        <option value="{{ $merchantBalance }}" @selected($merchantBalance == request()->query('balance_price'))>
+                        <option value="{{ $merchantBalance }}" @selected($merchantBalance == request()->query('balance_price') && filled(request()->query('balance_price')))>
                             {{ $merchantBalance }}
                         </option>
                     @endforeach
@@ -145,7 +149,7 @@
                 <select id="select-12" name="total_price" class="input lg:w-10/12 w w-full select2">
                     <option></option>
                     @foreach ($merchantTotals as $merchantTotal)
-                        <option value="{{ $merchantTotal }}" @selected($merchantTotal == request()->query('total_price'))>
+                        <option value="{{ $merchantTotal }}" @selected($merchantTotal == request()->query('total_price') && filled(request()->query('total_price')))>
                             ${{ $merchantTotal }}
                         </option>
                     @endforeach
@@ -156,7 +160,7 @@
                 <select id="select-13" name="amount_price" class="input lg:w-10/12 w w-full select2">
                     <option></option>
                     @foreach ($merchantAmounts as $merchantAmounts)
-                        <option value="{{ $merchantAmounts }}" @selected($merchantAmounts == request()->query('amount_price'))>
+                        <option value="{{ $merchantAmounts }}" @selected($merchantAmounts == request()->query('amount_price') && filled(request()->query('amount_price')))>
                             ${{ $merchantAmounts }}
                         </option>
                     @endforeach
@@ -167,7 +171,7 @@
                 <select id="select-14" name="in_sh" class="input lg:w-10/12 w-full select2 ">
                     <option></option>
                     @foreach ($merchantInshs as $merchantInsh)
-                        <option value="{{ $merchantInsh }}" @selected($merchantInsh == request()->query('in_sh'))>{{ $merchantInsh }}
+                        <option value="{{ $merchantInsh }}" @selected($merchantInsh == request()->query('in_sh') && filled(request()->query('in_sh')))>{{ $merchantInsh }}
                         </option>
                     @endforeach
                 </select>
@@ -178,7 +182,7 @@
                 <select id="select-15" name="inv_arg" class="input lg:w-10/12 w-full select2">
                     <option></option>
                     @foreach ($merchantInvagrs as $merchantInvagr)
-                        <option value="{{ $merchantInvagr }}" @selected($merchantInvagr == request()->query('inv_arg'))>{{ $merchantInvagr }}
+                        <option value="{{ $merchantInvagr }}" @selected($merchantInvagr == request()->query('inv_arg') && filled(request()->query('inv_arg')))>{{ $merchantInvagr }}
                         </option>
                     @endforeach
                 </select>

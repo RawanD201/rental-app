@@ -138,8 +138,7 @@
     </div>
     <script>
         $('.select2').select2({
-            // placeholder: '---ناوێک هەڵبژێرە ---',
-            // allowClear: true
+
         });
     </script>
 @endsection
