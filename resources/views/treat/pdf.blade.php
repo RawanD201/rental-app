@@ -122,7 +122,7 @@
         </table>
     </div>
 
-    <script>
+    {{-- <script>
         window.onload = function() {
             if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)) {
                 // user is on a mobile device, don't open print dialo
@@ -134,5 +134,5 @@
         window.addEventListener("afterprint", function(event) {
             window.history.back();
         });
-    </script>
+    </script> --}}
 @endsection

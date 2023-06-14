@@ -36,6 +36,17 @@
 
     @yield('head-bottom')
     <title>@yield('title')</title>
+
+    <style>
+        @media (width < 500px) {
+            body {
+                padding-inline: 6rem;
+                zoom: 0.3;
+                -moz-transform: scale(0.3);
+                -moz-transform-origin: 0 0;
+            }
+        }
+    </style>
 </head>
 
 <body>

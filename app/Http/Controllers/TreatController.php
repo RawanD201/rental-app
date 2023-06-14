@@ -64,8 +64,13 @@ class TreatController extends Controller
                 'failed' => __('index.admin.messages.search.merchant')
             ]);
         }
-        $treats = $this->getTreatQueryByFilter($req)->get();
+        $treats = $this->getTreatQueryByFilter($req)
+            ->where('merchant_id', $id)
+            ->where('recive_price', '=', 0)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
+        // dd($treats->toSql(), $treats->getBindings());
         $treat = Merchant::select('name', 'phone', 'location')
             ->where('id', $id)
             ->first();
